@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Janhavi Wakchaure — architect, urban housing student, and lifelong learner." />
+  <title>Janhavi Wakchaure | In the Making</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #20231f;
+      --muted: #73766f;
+      --paper: #f5f2eb;
+      --cream: #ebe5d9;
+      --accent: #b65e3d;
+      --line: rgba(32, 35, 31, 0.17);
+      --white: #fffdf8;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; }
+
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .serif {
+      font-family: "Playfair Display", serif;
+    }
+
+    .section {
+      padding: 110px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 0.8fr 2fr;
+      gap: 40px;
+      margin-bottom: 54px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      font-weight: 500;
+      line-height: 1.03;
+      letter-spacing: -0.05em;
+    }
+
+    .section-heading p {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 242, 235, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      font-size: 1.05rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.88rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      padding: 70px 0 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .hero h1 {
+      margin: 22px 0 28px;
+      font-size: clamp(4rem, 10vw, 9.5rem);
+      font-weight: 500;
+      line-height: 0.88;
+      letter-spacing: -0.08em;
+    }
+
+    .hero h1 em { color: var(--accent); }
+
+    .hero-intro {
+      max-width: 470px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 19px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 450px;
+      padding: 26px;
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      right: -130px;
+      top: -70px;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      right: -80px;
+      top: -35px;
+    }
+
+    .card-number {
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--accent);
+      font-family: "Playfair Display", serif;
+    }
+
+    .hero-card-bottom {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-bottom h3 {
+      font-size: 1.8rem;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero-card-bottom p { color: var(--muted); }
+
+    .scroll-note {
+      margin-top: 48px;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .about-copy {
+      font-size: clamp(1.4rem, 2.6vw, 2.4rem);
+      line-height: 1.25;
+      letter-spacing: -0.035em;
+    }
+
+    .about-copy em { color: var(--accent); }
+
+    .about-details {
+      color: var(--muted);
+      display: grid;
+      gap: 24px;
+    }
+
+    .detail-item {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .detail-item strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    /* Timeline */
+    .timeline { position: relative; }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 16px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 40px;
+      padding: 0 0 65px;
+      position: relative;
+    }
+
+    .timeline-year {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding-left: 42px;
+    }
+
+    .timeline-content {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 35px;
+    }
+
+    .timeline-content h3 {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .timeline-content p { color: var(--muted); max-width: 650px; }
+
+    .timeline-content ul {
+      margin: 18px 0 0 18px;
+      color: var(--muted);
+    }
+
+    .timeline-content li { margin-bottom: 5px; }
+
+    /* Learnings */
+    .learning-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .learning-card {
+      padding: 30px;
+      min-height: 260px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      transition: transform 0.25s ease;
+    }
+
+    .learning-card:hover { transform: translateY(-5px); }
+
+    .learning-card .number {
+      color: var(--accent);
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+    }
+
+    .learning-card h3 {
+      font-size: 1.3rem;
+      margin: 28px 0 10px;
+    }
+
+    .learning-card p { color: var(--muted); font-size: 0.95rem; }
+
+    /* Work */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .work-card {
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .work-visual {
+      min-height: 270px;
+      padding: 28px;
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .work-visual .symbol {
+      font-family: "Playfair Display", serif;
+      font-size: 5rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .work-card:nth-child(2) .work-visual { background: #dfe2d7; }
+    .work-card:nth-child(3) .work-visual { background: #e8d8c9; }
+    .work-card:nth-child(4) .work-visual { background: #d8dfe3; }
+
+    .work-info { padding: 25px; }
+
+    .work-info h3 {
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .work-info p { color: var(--muted); font-size: 0.94rem; }
+
+    .tag {
+      display: inline-block;
+      margin-top: 18px;
+      margin-right: 5px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* Perspective */
+    .quote {
+      max-width: 950px;
+      font-size: clamp(2.1rem, 5vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+    }
+
+    .quote em { color: var(--accent); }
+
+    .quote-credit {
+      margin-top: 30px;
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--ink);
+      color: var(--white);
+      border-bottom: 0;
+    }
+
+    .contact .eyebrow { color: #e99a78; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+    }
+
+    .contact h2 {
+      font-size: clamp(3rem, 7vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      font-weight: 500;
+      margin-top: 20px;
+    }
+
+    .contact-copy { color: #c7c9c2; max-width: 430px; }
+
+    .contact-links {
+      display: grid;
+      align-content: end;
+      gap: 15px;
+    }
+
+    .contact-links a {
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      color: #e6e7e2;
+    }
+
+    .contact-links a:hover { color: #e99a78; }
+
+    footer {
+      background: var(--ink);
+      color: #aeb1aa;
+      padding: 24px 0;
+      font-size: 0.78rem;
+      border-top: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .container { width: min(var(--max), calc(100% - 32px)); }
+      .section { padding: 75px 0; }
+      .section-heading,
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .hero { padding-top: 55px; }
+      .hero-card { min-height: 330px; }
+      .learning-grid { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 10px; padding-bottom: 42px; }
+      .timeline-year { padding-left: 42px; }
+      .timeline-content { padding-left: 42px; }
+      .timeline::before { left: 16px; }
+      .contact h2 { margin-bottom: 10px; }
+      .footer-row { flex-direction: column; }
+    }
+
+    @media (max-width: 650px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 20px 24px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.open { display: flex; }
+      .hero h1 { font-size: clamp(4rem, 20vw, 7rem); }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">JW / IN THE MAKING</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+        Menu
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#story">Story</a>
+        <a href="#journey">Journey</a>
+        <a href="#learnings">Learnings</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">Architect / Urban Housing / Lifelong Learner</p>
+          <h1>Still<br><em>becoming.</em></h1>
+          <p class="hero-intro">
+            I am Janhavi Wakchaure — an architect exploring the relationship
+            between people, places, housing, and the cities we build together.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#journey">Explore my journey ↓</a>
+            <a class="button" href="#contact">Let's connect</a>
+          </div>
+
+          <p class="scroll-note">Scroll to read the story</p>
+        </div>
+
+        <div class="hero-card reveal">
+          <div class="card-number">01</div>
+          <div class="hero-card-bottom">
+            <p class="eyebrow">A personal archive</p>
+            <h3 class="serif">From learning spaces to shaping spaces.</h3>
+            <p>A collection of experiences, questions, projects, and lessons.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">01 / My story</p>
+          <h2>Every stage leaves something behind.</h2>
+        </div>
+
+        <div class="about-grid">
+          <p class="about-copy reveal">
+            I began by learning about the world around me. Architecture taught
+            me to observe space. Work taught me to take responsibility.
+            My Master's is teaching me to ask <em>who a city is really built for.</em>
+          </p>
+
+          <div class="about-details reveal">
+            <div class="detail-item">
+              <strong>What I explore</strong>
+              Affordable housing, urban systems, real estate, and people-centred cities.
+            </div>
+            <div class="detail-item">
+              <strong>How I work</strong>
+              With curiosity, observation, research, design thinking, and a willingness to go to the roots of a question.
+            </div>
+            <div class="detail-item">
+              <strong>What I believe</strong>
+              Planning should be for the people, by the people, and responsive to the realities of everyday life.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">02 / The timeline</p>
+          <h2>A journey in chapters.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-year">01 / Schooling</div>
+            <div class="timeline-content">
+              <h3 class="serif">The beginning</h3>
+              <p>
+                This is where the story starts. Add your school name, years,
+                interests, important people, activities, and the experiences
+                that shaped your early way of thinking.
+              </p>
+              <ul>
+                <li>What did I enjoy learning?</li>
+                <li>What experiences influenced me?</li>
+                <li>What did I learn about myself?</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-year">02 / Architecture</div>
+            <div class="timeline-content">
+              <h3 class="serif">Learning to think through space</h3>
+              <p>
+                My architectural education introduced me to design, drawings,
+                materials, structure, people, and the responsibility of shaping
+                the built environment.
+              </p>
+              <ul>
+                <li>Design thinking and spatial observation</li>
+                <li>Working with constraints and feedback</li>
+                <li>Understanding the relationship between people and space</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-year">03 / Professional life</div>
+            <div class="timeline-content">
+              <h3 class="serif">From concepts to responsibility</h3>
+              <p>
+                During my professional experience as an architect, including
+                work on hospitality-related projects, I learned how ideas move
+                from drawings to coordination, execution, and client requirements.
+              </p>
+              <ul>
+                <li>Working drawings and advanced 3D modelling</li>
+                <li>Concept development and presentation graphics</li>
+                <li>Client coordination, management, and teamwork</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-year">04 / CEPT University</div>
+            <div class="timeline-content">
+              <h3 class="serif">Looking beyond the building</h3>
+              <p>
+                My Master's in Urban Housing at CEPT University is expanding
+                my perspective from individual buildings to housing systems,
+                urban livelihoods, affordability, and the relationship between
+                jobs, mobility, and the city.
+              </p>
+              <ul>
+                <li>Affordable and inclusive housing</li>
+                <li>Urban housing policy and real estate strategy</li>
+                <li>Researching homelessness and housing access</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-year">05 / The next chapter</div>
+            <div class="timeline-content">
+              <h3 class="serif">Still asking better questions</h3>
+              <p>
+                The next phase is not only about a designation. It is about
+                continuing to learn, collaborating across disciplines, and
+                contributing to cities where housing, opportunity, and dignity
+                are connected.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="learnings">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">03 / Reflections</p>
+          <h2>What the journey has taught me.</h2>
+        </div>
+
+        <div class="learning-grid">
+          <article class="learning-card reveal">
+            <div class="number">01</div>
+            <h3>Stay curious</h3>
+            <p>
+              Good work begins with the willingness to ask questions and
+              investigate what lies beneath the obvious.
+            </p>
+          </article>
+
+          <article class="learning-card reveal">
+            <div class="number">02</div>
+            <h3>Design is responsibility</h3>
+            <p>
+              Every design decision affects people, resources, access, and
+              the way a place is experienced.
+            </p>
+          </article>
+
+          <article class="learning-card reveal">
+            <div class="number">03</div>
+            <h3>Learn from reality</h3>
+            <p>
+              Site visits, conversations, observations, and lived experiences
+              often reveal what drawings and data alone cannot.
+            </p>
+          </article>
+
+          <article class="learning-card reveal">
+            <div class="number">04</div>
+            <h3>Keep adapting</h3>
+            <p>
+              New environments and responsibilities can challenge existing
+              assumptions and create better ways of working.
+            </p>
+          </article>
+
+          <article class="learning-card reveal">
+            <div class="number">05</div>
+            <h3>People are central</h3>
+            <p>
+              The built environment is not only about form. It is also about
+              livelihoods, relationships, access, and dignity.
+            </p>
+          </article>
+
+          <article class="learning-card reveal">
+            <div class="number">06</div>
+            <h3>Progress is ongoing</h3>
+            <p>
+              A journey does not need to be perfect to be meaningful. Reflection
+              makes each stage part of the next one.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">04 / Selected work</p>
+          <h2>Questions turned into projects.</h2>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card reveal">
+            <div class="work-visual">
+              <span class="eyebrow">Research / Housing</span>
+              <div class="symbol">⌂</div>
+              <span>01 — Urban housing</span>
+            </div>
+            <div class="work-info">
+              <h3>Homelessness in Ahmedabad</h3>
+              <p>
+                Exploring homelessness, shelter systems, livelihoods, and
+                housing pathways through an urban housing lens.
+              </p>
+              <span class="tag">Urban research</span>
+              <span class="tag">Housing</span>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-visual">
+              <span class="eyebrow">Strategy / Real estate</span>
+              <div class="symbol">◫</div>
+              <span>02 — Hospitality</span>
+            </div>
+            <div class="work-info">
+              <h3>Hospitality feasibility study</h3>
+              <p>
+                Market assessment, site suitability, demand drivers, and
+                development strategy for a hospitality asset in Ahmedabad.
+              </p>
+              <span class="tag">Market research</span>
+              <span class="tag">Feasibility</span>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-visual">
+              <span class="eyebrow">Policy / Urban strategy</span>
+              <div class="symbol">↗</div>
+              <span>03 — Affordability</span>
+            </div>
+            <div class="work-info">
+              <h3>Affordable housing policy</h3>
+              <p>
+                Investigating housing affordability, transport-oriented
+                development, and inclusive urban growth.
+              </p>
+              <span class="tag">Policy</span>
+              <span class="tag">TOD</span>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-visual">
+              <span class="eyebrow">Practice / Architecture</span>
+              <div class="symbol">△</div>
+              <span>04 — Professional work</span>
+            </div>
+            <div class="work-info">
+              <h3>Architecture and coordination</h3>
+              <p>
+                A selection of architectural drawings, 3D models, concepts,
+                presentations, and professional experiences.
+              </p>
+              <span class="tag">Architecture</span>
+              <span class="tag">Design</span>
+            </div>
+          </article>
+        </div>
+
+        <p style="margin-top: 25px; color: var(--muted); font-size: 0.85rem;">
+          Replace the cards above with your actual project images, descriptions,
+          PDFs, and project links.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <p class="eyebrow">05 / My perspective</p>
+        <p class="quote serif">
+          “I want to understand how we can create
+          <em>equitable cities</em> — not only cities that are investible,
+          but cities that work for people.”
+        </p>
+        <p class="quote-credit">A personal working belief — Janhavi Wakchaure</p>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <p class="eyebrow">06 / Let's connect</p>
+          <h2 class="serif">Every story<br>continues.</h2>
+          <p class="contact-copy" style="margin-top: 25px;">
+            I am open to conversations about architecture, housing, urban
+            research, design, and meaningful collaborations.
+          </p>
+        </div>
+
+        <div class="contact-links reveal">
+          <!-- Replace these example links with your actual details. -->
+          <a href="mailto:your.email@example.com">Email ↗</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© <span id="year"></span> Janhavi Wakchaure</span>
+      <span>Designed as a living archive of learning.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    // Automatically display the current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Reveal sections as the visitor scrolls
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
